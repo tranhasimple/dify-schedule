@@ -1,8 +1,10 @@
 name: Auto
 
 on:
+  # Chạy tự động hàng ngày lúc 15:20 giờ Việt Nam (tức 08:20 UTC)
   schedule:
-    - cron: "20 8 * * *" # 北京时间上午06:30
+    - cron: "20 8 * * *"
+  # Cho phép chạy thủ công nếu cần
   workflow_dispatch:
 
 env:
@@ -27,6 +29,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
+      
+      - name: Kiểm tra thời gian hiện tại
+        run: |
+          echo "🕒 UTC now: $(date -u)"
+          echo "🕒 Local time: $(date)"
+
       - name: Run Project
         run: |
           yarn
