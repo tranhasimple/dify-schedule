@@ -1,9 +1,8 @@
 name: Auto
 
 on:
-  # Chạy tự động hàng ngày lúc 15:50 giờ Việt Nam (tức 08:50 UTC)
   schedule:
-    - cron: "10 9 * * *"
+    - cron: "0 21 * * *" # 6:00 JST
   # Cho phép chạy thủ công nếu cần
   workflow_dispatch:
 
